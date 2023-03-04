@@ -94,3 +94,61 @@ const showModalData = modalData => {
         }
         return template;
     };
+
+
+    //Getting features from object
+    const singleDataFeatures = Object.entries(features);
+
+    const modalContainer = document.getElementById('modal');
+    modalContainer.innerHTML = '';
+    modalContainer.innerHTML += `
+    <div
+        class=" relative flex gap-5 modal-box w-11/12 max-w-5xl  justify-center flex-col lg:flex-row h-fit md:py-20  md:px-14">
+
+        <label for="modals" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+        <div class="bg-red-50 lg:p-5 w-fit lg:w-[440px] rounded-lg border-2 border-red-400 p-5  ">
+            <h1 id="modal-title" class="text-lg font-semibold lg:pt-0 pt-96">${description}</h1>
+            <div class="flex font-semibold gap-2 py-4  text-center justify-center text-base lg:flex-row flex-col">
+                <div class="lg:w-32 bg-white p-5 rounded-lg ">
+                    <h1 class="text-green-500">${pricing[0].price ? pricing[0].price : 'Free of Cost'} <br>${pricing[0].plan}</h1>
+                </div>
+                <div class="lg:w-32 bg-white p-5 rounded-lg">
+                    <h1 class="text-orange-500">${pricing[1].price ? pricing[1].price : 'Free of Cost'} <br>${pricing[1].plan}</h1>
+                </div>
+                <div class="lg:w-32 bg-white p-5 rounded-lg">
+                    <h1 class="text-red-500">${pricing[2].price ? pricing[2].price : 'Free of Cost'} <br>${pricing[2].plan}</h1>
+                </div>
+            </div>
+            <!-- --- -->
+            <div class="flex justify-evenly lg:flex-row flex-col">
+                <div>
+                    <h1 class=" font-bold text-lg">Features</h1>
+                    <ul class="text-slate-500 list-disc p-2">
+                        <li>${singleDataFeatures[0][1].feature_name ? singleDataFeatures[0][1].feature_name : 'No Data Found'}</li>
+                        <li>${singleDataFeatures[1][1].feature_name ? singleDataFeatures[1][1].feature_name : 'No Data Found'}</li>
+                        <li>${singleDataFeatures[2][1].feature_name ? singleDataFeatures[2][1].feature_name : 'No Data Found'}</li>
+                    </ul>
+                </div>
+                <div>
+                    <h1 class=" font-bold text-lg">Integration</h1>
+                    <ul class="text-slate-500 list-disc p-4">
+                        <li>${integrations[0] ? integrations[0] : 'No Data Found'}</li>
+                        <li>${integrations[1] ? integrations[1] : 'No Data Found'}</li>
+                        <li>${integrations[2] ? integrations[2] : 'No Data Found'}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--  ------------- -->
+        <div class="lg:w-[440px] w-fit border-2 rounded-lg text-center p-5 space-y-2 relative">
+            <img class="mx-auto  rounded-lg w-fit" src="${image_link[0]}" alt="" />
+            <h1 class="font-bold">${input_output_examples[0].input}</h1>
+            <p>${input_output_examples[0].output}</p>
+            <div>
+            ${accuracyFunction()}
+            </div>
+        </div>
+    </div>
+    `
+}
