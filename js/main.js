@@ -152,3 +152,14 @@ const showModalData = modalData => {
     </div>
     `
 }
+
+
+// see another functions
+const seeMoreData = async () => {
+    const url = `https://openapi.programming-hero.com/api/ai/tools`
+    const res = await fetch(url);
+    const allData = await res.json();
+    showAllData(allData.data.tools);
+    const seeALLButton = document.getElementById('see-more-btn');
+    seeALLButton.classList.add('hidden')
+}
