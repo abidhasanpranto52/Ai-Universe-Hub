@@ -51,3 +51,18 @@ const showAllData = (allData) => {
     // loading end 
     toggleLoader(false)
 };
+
+
+
+// loader function 
+const toggleLoader = isLoading => {
+    const loadingSection = document.getElementById('loader');
+    if (isLoading) {
+        loadingSection.classList.remove('hidden')
+    }
+    else {
+        loadingSection.classList.add('hidden')
+    }
+};
+// loading start 
+toggleLoader(true);
