@@ -66,3 +66,31 @@ const toggleLoader = isLoading => {
 };
 // loading start 
 toggleLoader(true);
+
+
+
+// Fetch single data 
+const modalData = async (dataID) => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${dataID}`
+    const res = await fetch(url);
+    const modalData = await res.json();
+    showModalData(modalData.data);
+};
+
+// show modal data 
+const showModalData = modalData => {
+    console.log(modalData)
+
+    // Destructuring object 
+    const { features, description, pricing, image_link, input_output_examples, integrations, accuracy } = modalData;
+
+    // accuracy function 
+    const accuracyFunction = () => {
+        if (accuracy.score) {
+            template = `<p id="accuracy" class="absolute top-6 right-7 bg-red-500 font-semibold text-white py-1 px-3 rounded-md text-sm">${accuracy.score * 100 + "%" + " " + "Accuracy"
+                }</p>`;
+        } else {
+            template = "";
+        }
+        return template;
+    };
