@@ -39,7 +39,7 @@ const showAllData = (allData) => {
                     </div>
                     <div class="card-actions justify-end">
                         <label  for="modals">
-                             <i class="fa-solid fa-arrow-right bg-red-100 text-red-400 p-3 rounded-full hover:bg-red-300 hover:text-white" onClick="modalData('${id}')"></i>
+                             <i class="fa-solid fa-arrow-right bg-red-100 text-red-400 p-3 rounded-full hover:bg-red-500 hover:cursor-pointer hover:text-white" onClick="modalData('${id}')"></i>
                         </label>
                     </div>
                 </div>
@@ -79,7 +79,6 @@ const modalData = async (dataID) => {
 
 // show modal data 
 const showModalData = modalData => {
-    console.log(modalData)
 
     // Destructuring object 
     const { features, description, pricing, image_link, input_output_examples, integrations, accuracy } = modalData;
@@ -120,7 +119,6 @@ const showModalData = modalData => {
                     <h1 class="text-red-500">${pricing[2].price ? pricing[2].price : 'Free of Cost'} <br>${pricing[2].plan}</h1>
                 </div>
             </div>
-            <!-- --- -->
             <div class="flex justify-evenly lg:flex-row flex-col">
                 <div>
                     <h1 class=" font-bold text-lg">Features</h1>
@@ -140,7 +138,6 @@ const showModalData = modalData => {
                 </div>
             </div>
         </div>
-        <!--  ------------- -->
         <div class="lg:w-[440px] w-fit border-2 rounded-lg text-center p-5 space-y-2 relative">
             <img class="mx-auto  rounded-lg w-fit" src="${image_link[0]}" alt="" />
             <h1 class="font-bold">${input_output_examples[0].input}</h1>
