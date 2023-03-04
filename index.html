@@ -28,6 +28,36 @@
         </section>
     </header>
 
+ <!--==============Main==============-->
+    <main class="container mx-auto">
+        <!-- ==============Cards section==============  -->
+        <section id="card-container"
+            class="mt-14 p-4 space-y-7 md:space-y-0 md:p-0 md:grid md:grid-cols-3 md:gap-7 mb-14 ">
+
+        </section>
+
+        <!-- ==============Spinner section============== -->
+        <section class="hidden" id="loader">
+            <div class=" flex justify-center " style=" height: 400px;">
+                <button class="btn btn-square loading rounded-full" style="width:60px; height: 60px; "></button>
+            </div>
+        </section>
+
+        <!-- ==============Modal section==============  -->
+        <section class="w-full">
+            <input type="checkbox" id="modals" class="modal-toggle">
+            <div class="modal" id="modal">
+            </div>
+        </section>
+        
+
+        <!-- ==============See more button==============  -->
+        <div class="text-center mb-14 " id="see-more-btn">
+            <button class="btn btn-error text-white hover:bg-red-500" onclick="seeMoreData()">See More</button>
+        </div>
+    </main>
+
+
     <!--Js File Add-->
     <script src="js/app.js"></script>
 </body>
